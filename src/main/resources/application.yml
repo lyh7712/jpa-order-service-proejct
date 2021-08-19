@@ -13,6 +13,7 @@ spring:
       hibernate:
         dialect=org:
           hibernate:
+            ddl-auto: update
             dialect:
               MySQL5InnoDBDialect:nd
             show-sql: true
