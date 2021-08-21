@@ -5,13 +5,29 @@ package lyh7712.shopservice.psytest;
 // 그러나 이러한 소스코드 변경은 OCP 원칙에 위배된다.
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 public class Client {
 
-    public static void main(String[] args) {
-        KindOfSound sound = new KindOfSound(new Mp3());
-        KindOfSound sound2 = new KindOfSound(new Wav());
 
-        sound.play();
-        sound2.play();
+    public static void main(String[] args) {
+
+        List<TestObject> list = new ArrayList<>();
+
+
+        TestObject object1 = new TestObject(1L, "test");
+        TestObject object2 = new TestObject(2L, "test2");
+
+        list.add(object1);
+        list.add(object2);
+
+        TestObject testObject = list.stream()
+                .filter(o -> o.getName() == "test2")
+                .findFirst()
+                .orElseThrow();
+
+        System.out.println(testObject.getName());
     }
 }
