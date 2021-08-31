@@ -12,6 +12,8 @@ class StudyTest {
     void createStudy() {
         Study study = new Study();
 
+        System.out.println(System.getenv("TEST_ENV"));
+
         assertAll(
                 () -> assertNotNull(study),
                 () -> assertEquals(StudyStatus.DRAFT, study.getStatus(),
