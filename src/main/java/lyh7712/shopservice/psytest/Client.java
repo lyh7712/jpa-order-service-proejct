@@ -5,29 +5,19 @@ package lyh7712.shopservice.psytest;
 // 그러나 이러한 소스코드 변경은 OCP 원칙에 위배된다.
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 public class Client {
-
-
     public static void main(String[] args) {
+        Client client = new Client();
 
-        List<TestObject> list = new ArrayList<>();
+        client.solution("01034234323");
 
+    }
 
-        TestObject object1 = new TestObject(1L, "test");
-        TestObject object2 = new TestObject(2L, "test2");
-
-        list.add(object1);
-        list.add(object2);
-
-        TestObject testObject = list.stream()
-                .filter(o -> o.getName() == "test2")
-                .findFirst()
-                .orElseThrow();
-
-        System.out.println(testObject.getName());
+    public String solution(String phone_number) {
+        String result1 = phone_number.substring(phone_number.length() - 4, phone_number.length()); // 4323
+        String result2 = phone_number.substring(0, phone_number.length() - 4).replaceAll("[\\d]", "*"); // 0102323
+        System.out.println(result2 + result1);
+        return result2;
     }
 }

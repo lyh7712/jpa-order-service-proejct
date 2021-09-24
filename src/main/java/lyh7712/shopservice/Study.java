@@ -1,11 +1,12 @@
 package lyh7712.shopservice;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Study {
+public class Study implements Serializable {
 
     private StudyStatus studyStatus = StudyStatus.DRAFT;
     private int limit;
@@ -50,4 +51,5 @@ public class Study {
         }
         return result;
     }
+
 }
