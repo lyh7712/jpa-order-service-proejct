@@ -1,23 +1,26 @@
 package lyh7712.shopservice.psytest;
 
-//예를 들어 Mp3 파일을 재생하도록 요구사항이 변경 되었다고 하자.
-//요구사항을 만족 시키기 위해서는 SoundPlayer의 play() 메소드를 수정하여야 한다.
-// 그러나 이러한 소스코드 변경은 OCP 원칙에 위배된다.
-
-
 
 public class Client {
     public static void main(String[] args) {
         Client client = new Client();
 
-        client.solution("01034234323");
+        String word = "수박";
+
+        client.solution(3, word);
 
     }
 
-    public String solution(String phone_number) {
-        String result1 = phone_number.substring(phone_number.length() - 4, phone_number.length()); // 4323
-        String result2 = phone_number.substring(0, phone_number.length() - 4).replaceAll("[\\d]", "*"); // 0102323
-        System.out.println(result2 + result1);
-        return result2;
+    public String solution(int n, String word) {
+        String answer = "";
+        for(int i = 0; i < n; i++) {
+            if (i % 2 == 0) {
+                answer = answer + word.charAt(0);
+            } else {
+                answer = answer + word.charAt(1);
+            }
+        }
+        System.out.println(answer);
+        return answer;
     }
 }
