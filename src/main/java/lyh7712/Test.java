@@ -25,6 +25,7 @@ public class Test {
                 return participant[i];
             }
         }
+
         return participant[i];
     }
 
