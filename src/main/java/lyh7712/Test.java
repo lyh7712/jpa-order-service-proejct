@@ -1,6 +1,8 @@
 package lyh7712;
 
 
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Test {
 
@@ -8,15 +10,21 @@ public class Test {
 
         Test test = new Test();
 
-        int[] numbers = {1,3,4,5,8,2,1,4,5,9,5};
-        String hand = "right";
+        String s = "Zbcdefg";
 
-        test.solution(numbers, hand);
+        test.solution(s);
     }
 
-    public String solution(int[] numbers, String hand) {
-        String answer = "";
-
-        return answer;
+    public String solution(String s) {
+        Character [] arr = new Character [s.length()];
+        for(int i=0; i<arr.length; i++) {
+            arr[i] = s.charAt(i);
+        }
+        Arrays.sort(arr, Collections.reverseOrder());
+        s = "";
+        for(int i=0; i<arr.length; i++) {
+            s += arr[i];
+        }
+        return s;
     }
 }
