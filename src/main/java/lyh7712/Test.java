@@ -12,19 +12,21 @@ public class Test {
 
         String s = "Zbcdefg";
 
-        test.solution(s);
+        test.solution(5, 24);
     }
 
-    public String solution(String s) {
-        Character [] arr = new Character [s.length()];
-        for(int i=0; i<arr.length; i++) {
-            arr[i] = s.charAt(i);
+    public String solution(int a, int b) {
+        String answer = "";
+        String[] day = { "FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU" };
+        int[] date = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        int allDate = 0;
+        for (int i = 0; i < a - 1; i++) {
+            allDate += date[i];
         }
-        Arrays.sort(arr, Collections.reverseOrder());
-        s = "";
-        for(int i=0; i<arr.length; i++) {
-            s += arr[i];
-        }
-        return s;
+
+        allDate += (b - 1);
+        answer = day[allDate % 7];
+
+        return answer;
     }
 }
